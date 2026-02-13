@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+    .yes{
+  background: linear-gradient(to bottom, #F06292, #5E35B1);
+  background-size: 1000% 1000%;
+  animation: move 5s ease-in-out infinite;
+}
+
+@keyframes move {
+  0% { background-position: 0 0; }
+  50% { background-position: 0 100%; }
+  100% { background-position: 0 0; }
+}
+
+.no{
+  background: linear-gradient(to bottom, #F4320B, #701705);
+  background-size: 1000% 1000%;
+  animation: move2 5s ease-in-out infinite;
+}
+
+@keyframes move2 {
+  0% { background-position: 0 0; }
+  50% { background-position: 0 100%; }
+  100% { background-position: 0 0; }
+}
+    
+</style>
+<body class="bg-amber-50 flex items-center justify-center py-20">
+<main  class=" flex flex-col justify-between items-center w-full h-[500px] ">
+        
+            <img src="image/default.png" alt="" class=" ">
+    
+
+    <h1 class="text-purple-800 text-4xl font-bold font-sans text-center">Will you be my
+         <br> VALENTINE? </h1>
+
+
+          <section class="  w-full flex justify-evenly">
+            <a href="valentine2.html"><button type="submit" class="yes  
+             text-white px-4 py-2  rounded-3xl w-32 
+             cursor-pointer text-2xl font-semibold z-50" id="yes">YES!</button></a>
+
+            <button type="submit" class="no  
+             text-white px-4 py-2  rounded-3xl w-32 
+             cursor-pointer text-2xl font-semibold">NO</button>
+         </section> 
+
+         </main>
+
+         <script>
+            
+const noBtn = document.querySelector('.no');
+const yesBtn = document.querySelector('.yes');
+
+
+let size = 2;
+
+noBtn.addEventListener('click', () => {
+  noBtn.style.position = 'absolute';
+  noBtn.style.top = Math.random() * 200 + 'px';
+  noBtn.style.left = Math.random() * 200 + 'px';
+
+  size += 0.2
+
+  
+  yesBtn.style.transform = `scale(${size})`;
+  let yes = document.getElementById("yes").innerHTML = "You can't say no to me!";
+});
+
+ yesBtn.addEventListener('click', () => {
+ confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.5}
+    });
+ });
+</script>
+    
+</body>
+</html>
